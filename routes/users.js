@@ -3,9 +3,11 @@
 const express = require('express');
 const router  = express.Router();
 
+
+
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
+  router.get("/foods", (req, res) => {
     knex
       .select("*")
       .from("users")
@@ -14,5 +16,12 @@ module.exports = (knex) => {
     });
   });
 
+
+
+
   return router;
 }
+
+
+
+//
