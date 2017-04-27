@@ -16,6 +16,7 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
+const homeRoutes = require("./routes/homeRoutes");
 
 // I am testing this branch
 
@@ -38,10 +39,12 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
+app.use("/home", homeRoutes());
 app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
+  console.log("index");
   res.render("index");
 });
 
