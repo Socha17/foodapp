@@ -16,7 +16,7 @@ $(document).ready(function() {
       $('#email').addClass( "formError" );
       $('#pwd').addClass( "formError" );
       $(".alertMessage").css("display", "block" );
-      setTimeout( function() { $('#email').removeClass( "formError" ); $('#pwd').removeClass( "formError" ); $(".alertMessage").css("display", "none"); }, 4000);
+      setTimeout( function() { $('#email').removeClass( "formError" ); $('#pwd').removeClass( "formError" ); $(".alertMessage").css("display", "none"); }, 3000);
     } else {
       $.ajax({
         url: '/home',
