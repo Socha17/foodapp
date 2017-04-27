@@ -11,15 +11,15 @@ function verifyUserIsLoggedIn (user) {
   }
 }
 
-const menuDB = {
-  var Pizza {
-    id: 1,
-    unit_price: 5,
-    name: 'pizza',
-    description: 'Ballin',
-    image_id: '/hidden',
-  }
-};
+// const menuDB = {
+//   var pizza {
+//     id: 1,
+//     unit_price: 5,
+//     name: 'pizza',
+//     description: 'Ballin',
+//     image_id: '/hidden',
+//   }
+// };
 
 module.exports = (knex) => {
 
