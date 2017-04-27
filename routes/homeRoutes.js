@@ -16,7 +16,7 @@ const usersDB = {
       id: "2",
       first_name: "bob",
       last_name: "long",
-      email: "user@user.com",
+      email: "user2@user.com",
       password: "password"
     },
   },
@@ -39,8 +39,22 @@ module.exports = () => {
 
   homeRoutes.post("/", (req, res) => {
     console.log("clicked login");
-    console.log(usersDB.users.user01.first_name);
+    console.log(req.body.email);
+    console.log(req.body.password);
+    var validEmail = checkEmails(req.body.email, usersDB);
+    console.log(validEmail);
+    res.send("test")
   });
-
   return homeRoutes;
+}
+
+
+let checkEmails = (email, usersDB) => {
+  let checkEmails = "";
+  Object.keys(usersDB.users).forEach(function (c, i) {
+      if (usersDB.users[c]['email'] == email) {
+        return checkEmails = c
+      }
+  });
+  return checkEmails;
 }
