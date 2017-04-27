@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "sass/layout.css",
+	"sources": [
+		"sass/layout.scss"
+	],
+	"sourcesContent": [
+		"body {\n  background-color: #EEE;\n\n  h1 {\n    color: blue;\n  }\n}\n"
+	],
+	"mappings": ";AAAA,AAAA,IAAI,CAAC;EACH,gBAAgB,EAAE,IAAK,GAKxB;;EAND,AAGE,IAHE,CAGF,EAAE,CAAC;IACD,KAAK,EAAE,IAAK,GACb",
+	"names": []
+}

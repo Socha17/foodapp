@@ -2,6 +2,21 @@ body {
   background-color: #EEE;
 
   h1 {
-    color: #244751;
+    color: red;
   }
+}
+
+
+.bgImage {
+  width: 100%;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.loginForm {
+  padding-top: 25px;
+  float: right;
+  display: inline;
 }
