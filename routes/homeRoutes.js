@@ -39,12 +39,6 @@ module.exports = (knex) => {
 
 
   homeRoutes.post("/", (req, res) => {
-    console.log("clicked login");
-    console.log(req.body.email);
-    console.log(req.body.password);
-    // var validEmail = checkEmails(req.body.email, usersDB);
-
-
 
       knex.select("*").from('users').where({
         email     : req.body.email,
