@@ -1,47 +1,44 @@
 
 const express = require('express');
-const homeRoutes = express.Router();
-
+const adminRoutes = express.Router();
 
 
 module.exports = (knex) => {
 
-  homeRoutes.get("/", (req, res) => {
-    console.log("got get");
-    res.render("admin")
+  let objOrders = {}
+  let objFood = {}
+  let gotData = false
+
+
+  adminRoutes.get("/", function(req, res) {
+
+    if (gotData == false) {
+      res.render('admin')
+      gotData = true;
+    } else {
+
+
+    knex.select("*").from('orders').then((orders) => {
+      console.log(`this is orders ${orders[0].orderTotal}`);
+      objOrders = orders
+    }).then(() => {
+      knex.select("*").from('foodordersusers').then((resultsFood) => {
+        console.log(`this is resultsFood ${resultsFood[0].name}`);
+        objFood = resultsFood
+        // res.redirect('/admin')
+        res.json(({objFood, objOrders}));
+        let testobj =  JSON.stringify({objFood, objOrders})
+        // res.render('admin', {  testobj });
+      })
+    });
+
+    }
+    // res.json('test')
+
+
   });
 
 
-  homeRoutes.post("/", (req, res) => {
+  return adminRoutes;
 
-      knex.select("*").from('users').where({
-        email     : req.body.email,
-        password  : req.body.password
-      }).then((results) => {
-        if (results.length == 0) {
-          res.redirect('/')
-        } else {
-          res.render("test");
-        }
-      });
-
-  });
-
-  homeRoutes.get("/:id", (req, res) => {
-    console.log("id got it");
-    res.send("i got id");
-  });
-
-  return homeRoutes;
-}
-
-
-let checkEmails = (email, usersDB) => {
-  let checkEmails = "";
-  Object.keys(usersDB.users).forEach(function (c, i) {
-      if (usersDB.users[c]['email'] == email) {
-        return checkEmails = c
-      }
-  });
-  return checkEmails;
 }
