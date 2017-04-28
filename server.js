@@ -40,7 +40,7 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 
-app.use("/home", homeRoutes());
+app.use("/home", homeRoutes(knex));
 app.use("/api/users", usersRoutes(knex));
 
 app.use("/foods", usersRoutes(knex));

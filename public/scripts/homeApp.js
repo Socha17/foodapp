@@ -28,10 +28,14 @@ $(document).ready(function() {
         url: '/home',
         method: 'POST',
         data: {email: email, password: password},
-        success: function () {
-          $('.submitBtn').unbind('submit').submit()
+        success: function (response , test) {
+
           console.log("success1");
 
+          console.log(`this is test ${test}`);
+          if (response != "") {
+            console.log("got response");
+          }
         }
       });
     }
