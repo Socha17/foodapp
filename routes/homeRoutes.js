@@ -42,9 +42,16 @@ module.exports = () => {
     console.log(req.body.email);
     console.log(req.body.password);
     var validEmail = checkEmails(req.body.email, usersDB);
-    console.log(validEmail);
-    res.send("test")
+    if (validEmail != "") {
+      res.render("test");
+    }
   });
+
+  homeRoutes.get("/:id", (req, res) => {
+    console.log("id got it");
+    res.send("i got id");
+  });
+
   return homeRoutes;
 }
 

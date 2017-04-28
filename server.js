@@ -18,13 +18,6 @@ const knexLogger  = require('knex-logger');
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
 
-// I am testing this branch
-
-
-
-
-
-
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
