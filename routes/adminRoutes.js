@@ -3,10 +3,12 @@ const express = require('express');
 const homeRoutes = express.Router();
 
 
+
 module.exports = (knex) => {
 
   homeRoutes.get("/", (req, res) => {
     console.log("got get");
+    res.render("admin")
   });
 
 

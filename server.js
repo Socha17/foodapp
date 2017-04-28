@@ -17,6 +17,7 @@ const knexLogger  = require('knex-logger');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 
 
@@ -42,6 +43,7 @@ app.use(express.static("public"));
 
 app.use("/home", homeRoutes(knex));
 app.use("/api/users", usersRoutes(knex));
+app.use("/admin", adminRoutes(knex));
 
 app.use("/foods", usersRoutes(knex));
 
