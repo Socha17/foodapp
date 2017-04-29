@@ -56,21 +56,27 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
 } // << end func
 
 
-
-
 $(document).ready(function() {
-
 
   $.ajax({
     url: '/admin',
     method: 'GET',
   }).done((data) => {
     console.log("success");
-    console.log(data);
-    console.log(data.objFood[0].name);
-
-  generateTables(data);
+    generateTables(data);
+    $('.btnAccept').on('click', function(){
+      console.log("button clicked");
+      $.ajax({
+        url: '/admin',
+        method: 'POST',
+      }).done(() => {
+        console.log("success");
+      });
+    })
   });
+
+  console.log("stuff");
+
 
 
 });
