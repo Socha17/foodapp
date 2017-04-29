@@ -5,10 +5,11 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/homeApp.js"></script>
@@ -23,13 +24,14 @@
       <span class="header">FoodApp</span>
       <form class="form-inline loginForm" id="loginForm" action="/home" method="POST">
         <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+
+          <input type="email" name="email" class="form-control override" id="email" placeholder="Enter email">
         </div>
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" name="password" class="form-control" id="pwd" placeholder="Enter password">
+
+          <input type="password" name="password" class="form-control override" id="pwd" placeholder="Enter password">
         </div>
-        <button type="submit" class="submitBtn btn btn-default">Submit</button>
+        <button type="submit" class="submitBtn">Submit</button>
       </form>
+      <span class="alertMessage">Incorrect Login</span>
     </nav>

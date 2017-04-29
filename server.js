@@ -18,11 +18,15 @@ const knexLogger  = require('knex-logger');
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
 
+
 // I am testing this branch
 const checkoutRoutes = require('./routes/checkoutRoutes');
 
 
 
+
+
+const adminRoutes = require("./routes/adminRoutes");
 
 
 
@@ -47,7 +51,11 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 
-app.use("/home", homeRoutes());
+
+app.use("/home", homeRoutes(knex));
+app.use("/api/users", usersRoutes(knex));
+app.use("/admin", adminRoutes(knex));
+
 
 
 
