@@ -8,7 +8,7 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
           <th>Quantity</th>
           <th>Items Price</th>
           <th>Total Price</th>
-          <th>Action</th>
+          <th>Update Status</th>
         </tr>
         <tr>
           <td>${data.objOrders[0].id}</td>
