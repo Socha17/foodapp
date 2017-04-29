@@ -1,6 +1,6 @@
 
 let generateTables = (data) => {
-let baseTable = `<table class="orderTable" style="width:80%; margin: auto;">
+let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: auto;">
         <tr>
           <th>Order ID</th>
           <th>User</th>
@@ -17,7 +17,7 @@ let baseTable = `<table class="orderTable" style="width:80%; margin: auto;">
           <td>${data.objFood[0].quantity}</td>
           <td>$${data.objFood[0].unit_price}</td>
           <td>$${data.objOrders[0].orderTotal}</td>
-          <td><button type="button" name="button">Accept</button></td>
+          <td><button type="button" class="btnAccept" name="button">Accept</button></td>
         </tr>
 
       </table>`
@@ -25,11 +25,7 @@ let baseTable = `<table class="orderTable" style="width:80%; margin: auto;">
 
   for (var x = 0; x < data.objOrders.length; x++) {
       for (var i = 1; i < data.objFood.length; i++) {
-
-        console.log(`this is x ${data.objOrders[x].id}`);
-        console.log(`this is i ${data.objFood[i].order_id}`);
         if (data.objOrders[x].id == data.objFood[i].order_id ) {
-          console.log("printed");
           let otherTables = `
           <tr>
           <td></td>
@@ -42,7 +38,6 @@ let baseTable = `<table class="orderTable" style="width:80%; margin: auto;">
           </tr>`
           $('.orderTable').append(otherTables)
         } else if (data.objOrders[x].id > data.objFood[i].order_id ) {
-          console.log("greater then");
           let newTr = ` <tr>
           <td>${data.objOrders[x].id}</td>
           <td>${data.objUsers[x].first_name}</td>
@@ -50,33 +45,13 @@ let baseTable = `<table class="orderTable" style="width:80%; margin: auto;">
           <td>${data.objFood[i + 1].quantity}</td>
           <td>$${data.objFood[i + 1].unit_price}</td>
           <td>$${data.objOrders[x].orderTotal}</td>
-          <td><button type="button" name="button">Accept</button></td>
+          <td><button type="button" class="btnAccept" name="button">Accept</button></td>
           </tr>`
           $('.orderTable').append(newTr)
           i++
-          console.log(i);
         }
-
       }
   }
-
-  // for (var x = 0; x < data.objOrders.length; x++) {
-  //     for (var i = 1; i < data.objFood.length; i++) {
-  //       if (data.objOrders[x].id == data.objFood[i].order_id ) {
-  //         let otherTables = `
-  //         <tr>
-  //         <td></td>
-  //         <td></td>
-  //         <td>${data.objFood[i].name}</td>
-  //         <td>${data.objFood[i].quantity}</td>
-  //         <td>$${data.objFood[i].unit_price}</td>
-  //         <td></td>
-  //         <td></td>
-  //         </tr>`
-  //         $('.orderTable').append(otherTables)
-  //       }
-  //     }
-  // }
 
 } // << end func
 
