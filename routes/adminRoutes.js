@@ -51,10 +51,11 @@ module.exports = (knex) => {
     }, function(err, message) {
       if(err){
         console.log(err);
-      } else{
+      } else {
         console.log(message.sid);
       }
     });
+    res.send("message sent")
   });
 
   return adminRoutes;

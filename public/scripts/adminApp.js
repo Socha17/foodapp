@@ -17,7 +17,7 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
           <td>${data.objFood[0].quantity}</td>
           <td>$${data.objFood[0].unit_price}</td>
           <td>$${data.objOrders[0].orderTotal}</td>
-          <td><button type="button" class="btnAccept" name="button">Accept</button></td>
+          <td><button type="button" class="btnAccept" name="button"><span class="ui-button-text">Accept</span></button><span class="orderComplete" style="display: none;">Order Complete</span></td>
         </tr>
 
       </table>`
@@ -45,7 +45,7 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
           <td>${data.objFood[i + 1].quantity}</td>
           <td>$${data.objFood[i + 1].unit_price}</td>
           <td>$${data.objOrders[x].orderTotal}</td>
-          <td><button type="button" class="btnAccept" name="button">Accept</button></td>
+          <td><button type="button" class="btnAccept" name="button"><span class="ui-button-text">Accept</span></button><span class="orderComplete" style="display: none;">Order Complete</span></td>
           </tr>`
           $('.orderTable').append(newTr)
           i++
@@ -56,27 +56,43 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
 } // << end func
 
 
+
+let orderStatus = () => {
+
+    $(':button').on('click', function() {
+      if ($(this).hasClass("btnAccept")) {
+        console.log("button clicked");
+        $.ajax({
+          url: '/admin',
+          method: 'POST',
+        }).done(() => {
+          console.log("success on POST");
+          $(this).removeClass( "btnAccept" );
+          $(this).addClass( "orderDoneBtn" );
+          $(this).children("span").text("Done");
+
+          $('.orderDoneBtn').on('click', function() {
+            $(this).children("span").css("display", "none");
+            $(this).css("display", "none");
+            $(this).siblings(".orderComplete").css("display", "inline");
+
+          });
+        });
+      }
+    })
+
+}
+
+
 $(document).ready(function() {
 
   $.ajax({
     url: '/admin',
     method: 'GET',
   }).done((data) => {
-    console.log("success");
+    console.log("success on GET");
     generateTables(data);
-    $('.btnAccept').on('click', function(){
-      console.log("button clicked");
-      $.ajax({
-        url: '/admin',
-        method: 'POST',
-      }).done(() => {
-        console.log("success");
-      });
-    })
+    orderStatus()
   });
-
-  console.log("stuff");
-
-
 
 });
