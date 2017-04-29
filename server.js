@@ -18,6 +18,15 @@ const cookieSession = require('cookie-session');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
+
+
+// I am testing this branch
+const checkoutRoutes = require('./routes/checkoutRoutes');
+
+
+
+
+
 const adminRoutes = require("./routes/adminRoutes");
 
 app.use(cookieSession({
@@ -27,6 +36,7 @@ app.use(cookieSession({
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -48,13 +58,21 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 
+
 app.use("/home", homeRoutes(knex));
 app.use("/api/users", usersRoutes(knex));
 app.use("/admin", adminRoutes(knex));
 
+
+
+
 app.use("/foods", usersRoutes(knex));
-
-
+//-----RM Routes----------
+app.use("/checkout", checkoutRoutes(knex));
+//app.use("/checkout/:id", checkoutRoutes(knex));
+// app.use("/success");
+// app,use("/sucess/:id");
+//-----------------------//
 // Home page
 app.get("/", (req, res) => {
   console.log("index");

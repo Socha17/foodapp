@@ -1,0 +1,48 @@
+.horizontalLine, body #checkoutContainer hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  /* Modern Browsers */ }
+
+.bgImage {
+  z-index: 0; }
+
+body #checkoutContainer {
+  z-index: 2;
+  margin-top: -50%;
+  margin-left: 5%;
+  height: 50%;
+  border-color: black;
+  border-radius: 1%;
+  border-style: solid;
+  position: fixed;
+  background-color: white; }
+  body #checkoutContainer #checkoutHead {
+    text-align: center; }
+  body #checkoutContainer #orderDetails {
+    border-right: solid black;
+    border-width: 1px; }
+    body #checkoutContainer #orderDetails #itemsPopulate .foodQuantity {
+      float: left;
+      padding-right: 5em; }
+    body #checkoutContainer #orderDetails #itemsPopulate .Eachtotal {
+      float: right; }
+    body #checkoutContainer #orderDetails #orderTotals .totalLeft {
+      float: left;
+      padding-right: 15em; }
+    body #checkoutContainer #orderDetails #orderTotals .totalRight {
+      float: right; }
+    body #checkoutContainer #orderDetails #vendorInfo {
+      margin-top: 15%; }
+body #sucessContainer {
+  z-index: 1;
+  margin-top: -50%;
+  margin-left: 5%;
+  height: 50%;
+  border-color: black;
+  border-radius: 1%;
+  border-style: solid;
+  position: fixed;
+  background-color: white; }
+
+/*# sourceMappingURL=checkout.css.map */
