@@ -20,24 +20,26 @@ module.exports = (knex) => {
   let gotData = false
 
   adminRoutes.get("/", function(req, res) {
-
+    console.log(`this is gotData ${gotData}`);
     if (gotData == false) {
-      res.render('admin')
-      gotData = true;
+        knex.select("*").from('users').then((users) => {
+          objUsers = users
+        }).then(() => {
+        knex.select("*").from('orders').then((orders) => {
+          objOrders = orders
+        }).then(() => {
+          knex.select("*").from('foodordersusers').then((resultsFood) => {
+            objFood = resultsFood
+            gotData = true;
+            console.log("about to send json");
+            res.json(({objFood, objOrders, objUsers}));
+            })
+          });
+        });
     } else {
-      knex.select("*").from('users').then((users) => {
-        objUsers = users
-      }).then(() => {
-      knex.select("*").from('orders').then((orders) => {
-        objOrders = orders
-      }).then(() => {
-        knex.select("*").from('foodordersusers').then((resultsFood) => {
-          objFood = resultsFood
-          gotData = false;
-          res.json(({objFood, objOrders, objUsers}));
-        })
-      });
-    });
+      console.log("rendering");
+      gotData = false;
+      res.render('admin')
     }
 
   });
