@@ -19,17 +19,12 @@ module.exports = (knex) => {
         if (results.length == 0) {
           res.redirect('/')
         } else {
+          let userID = req.session.user_id = req.body.email;
+          console.log(userID);
           res.render("test");
         }
       });
-
   });
-
-  homeRoutes.get("/:id", (req, res) => {
-    console.log("id got it");
-    res.send("i got id");
-  });
-
   return homeRoutes;
 }
 
