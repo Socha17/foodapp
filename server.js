@@ -24,9 +24,6 @@ const homeRoutes = require("./routes/homeRoutes");
 const checkoutRoutes = require('./routes/checkoutRoutes');
 
 
-
-
-
 const adminRoutes = require("./routes/adminRoutes");
 
 app.use(cookieSession({
