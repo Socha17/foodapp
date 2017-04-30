@@ -18,6 +18,7 @@ const knexLogger  = require('knex-logger');
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
 
+const foodRoutes = require("./routes/foodRoutes");
 // I am testing this branch
 
 
@@ -50,7 +51,9 @@ app.use(express.static("public"));
 app.use("/home", homeRoutes());
 app.use("/api/users", usersRoutes(knex));
 
-app.use("/foods", usersRoutes(knex));
+//app.use("/foods", userRoutes(knex));
+
+app.use("/foods", foodRoutes (knex));
 
 
 // Home page
