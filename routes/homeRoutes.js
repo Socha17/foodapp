@@ -10,7 +10,6 @@ module.exports = (knex, userID) => {
     res.redirect('/')
   });
 
-
   homeRoutes.post("/", (req, res) => {
 
     console.log(userID);
@@ -30,14 +29,14 @@ module.exports = (knex, userID) => {
             res.redirect('/')
           } else {
             let userEmail = req.session.user_id = req.body.email;
-            let userID = results[0].id
-            res.redirect("test");
+            let userID = results[0].id;
+            res.render("test");
           }
         });
           // user must be owner
       } else {
         let userEmail = req.session.user_id = req.body.email;
-        let userID = results[0].id
+        let userID = results[0].id;
 
         res.redirect("admin");
       }
