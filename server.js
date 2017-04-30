@@ -18,7 +18,7 @@ const cookieSession = require('cookie-session');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
-
+const registerRoutes = require("./routes/registerRoutes");
 
 // I am testing this branch
 const checkoutRoutes = require('./routes/checkoutRoutes');
@@ -66,9 +66,8 @@ app.use("/admin", adminRoutes(knex));
 app.use("/foods", usersRoutes(knex));
 //-----RM Routes----------
 app.use("/checkout", checkoutRoutes(knex));
-//app.use("/checkout/:id", checkoutRoutes(knex));
-// app.use("/success");
-// app,use("/sucess/:id");
+app.use("/register", registerRoutes(knex));
+
 //-----------------------//
 // Home page
 app.get("/", (req, res) => {

@@ -11,6 +11,8 @@ module.exports = (knex) => {
 
   checkoutRoutes.get("/:id", (req, res) => {
     //console.log("got get")
+    console.log("Checkout PAGE HIT");
+
     res.status(200).render("checkout")
   });
 

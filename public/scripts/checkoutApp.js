@@ -13,7 +13,7 @@ total: 40
 $(document).ready(() => {
 
   for(i in Cart.foodItems){
-  console.log("I am counting up",i);
+
   $('#orderDetails').find('#itemsPopulate').append(`<div><span class="foodQuantity">${Cart.quantity[i]}</span>x<span class="foodItems">${Cart.foodItems[i]}</span> <span class="Eachtotal">$ ${Cart.Eachtotal[i]}</span></div>`);
   }
   $('#orderDetails').find('#orderTotals').append(`<div><span class="totalLeft">SUBTOTAL</span> <span class="totalRight">$ ${Cart.subtotal}</span></div>`);
@@ -24,7 +24,7 @@ $(document).ready(() => {
 
   $('#creditCardBtn').on('click', () => {
     console.log("Payment_Approved");
-    let myObj = {a: "1234"}
+
     $.ajax({
       url: '/checkout/123',
       method: 'POST',
