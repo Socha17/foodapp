@@ -9,7 +9,7 @@
 
 body #checkoutContainer {
   z-index: 2;
-  margin-top: -50%;
+  margin-top: 10%;
   margin-left: 5%;
   height: 50%;
   border-color: black;
@@ -36,7 +36,7 @@ body #checkoutContainer {
       margin-top: 15%; }
 body #sucessContainer {
   z-index: 1;
-  margin-top: -50%;
+  margin-top: 10%;
   margin-left: 5%;
   height: 50%;
   border-color: black;
