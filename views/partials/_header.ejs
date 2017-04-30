@@ -16,19 +16,19 @@
     <script src="https://use.fontawesome.com/f212b4ef85.js"></script>
   </head>
 
-    <nav id="nav-bar">
-        <img src="/images/logo.png" class="logoIcon" alt="bg">
-      <span class="header">FoodApp</span>
-      <form class="form-inline loginForm" id="loginForm" action="/home" method="POST">
-        <div class="form-group">
-
-          <input type="email" name="email" class="form-control override" id="email" placeholder="Enter email">
+    <nav id="nav-bar" class="row">
+        <img src="/images/logo.png" class="logoIcon pull-left" alt="bg">
+      <span class="header col-xs-12 col-lg-5">FoodApp</span>
+      <form class="form-inline loginForm  col-xs-12 col-lg-6 pull-right" id="loginForm" action="/home" method="POST">
+        <div class="form-group pull-right">
+          <button type="submit" class="submitBtn pull-right">Submit</button>
         </div>
-        <div class="form-group">
-
+        <div class="form-group pull-right">
           <input type="password" name="password" class="form-control override" id="pwd" placeholder="Enter password">
         </div>
-        <button type="submit" class="submitBtn">Submit</button>
+        <div class="form-group pull-right">
+          <input type="email" name="email" class="form-control override" id="email" placeholder="Enter email">
+        </div>
+        <span class="alertMessage">Incorrect Login</span>
       </form>
-      <span class="alertMessage">Incorrect Login</span>
     </nav>
