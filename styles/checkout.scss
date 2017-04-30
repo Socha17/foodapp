@@ -1,0 +1,88 @@
+
+
+.horizontalLine {
+            border: none;
+            height: 1px;
+            background-color: #333; /* Modern Browsers */
+}
+
+.bgImage {
+  z-index: 0;
+  position:absolute;
+}
+
+
+body {
+
+
+
+  #checkoutContainer {
+    z-index:2;
+    margin-top: 10%;
+    margin-left: 5%;
+         height: 50%;
+    border-color: black;
+    border-radius: 1%;
+    border-style: solid;
+    position:fixed;
+    background-color: white;
+    hr {
+        @extend .horizontalLine;
+      }
+    #checkoutHead {
+      text-align: center;
+
+    }
+
+    #orderDetails {
+       border-right: solid black;
+       border-width: 1px;
+
+       #itemsPopulate {
+
+         .foodQuantity{
+          float:left;
+          padding-right: 5em;
+         }
+
+
+
+         .Eachtotal {
+          float:right;
+         }
+       }
+
+       #orderTotals {
+          .totalLeft{
+            float:left;
+          padding-right: 15em;
+          }
+
+          .totalRight{
+            float:right;
+          }
+
+       }
+
+       #vendorInfo{
+          margin-top: 15%;
+        }
+
+    }
+
+
+
+  }
+
+  #sucessContainer {
+    z-index:1;
+    margin-top: 10%;
+    margin-left: 5%;
+         height: 50%;
+    border-color: black;
+    border-radius: 1%;
+    border-style: solid;
+    position:fixed;
+    background-color: white;
+  }
+}

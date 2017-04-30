@@ -3,58 +3,46 @@ const express = require('express');
 const homeRoutes = express.Router();
 
 
-const usersDB = {
-  "users": {
-    "user01": {
-      id: "1",
-      first_name: "bob",
-      last_name: "long",
-      email: "user@user.com",
-      password: "password"
-    },
-    "users02": {
-      id: "2",
-      first_name: "bob",
-      last_name: "long",
-      email: "user2@user.com",
-      password: "password"
-    },
-  },
-  "owners": {
-   "owner01": {
-     id: "1",
-     first_name: "john",
-     last_name: "short",
-     email: "owner@owner.com",
-     password: "password"
-   }
-  }
-};
-
-module.exports = () => {
+module.exports = (knex, userID) => {
 
   homeRoutes.get("/", (req, res) => {
     console.log("got get");
+    res.redirect('/')
   });
 
   homeRoutes.post("/", (req, res) => {
-    console.log("clicked login");
-    console.log(req.body.email);
-    console.log(req.body.password);
-    var validEmail = checkEmails(req.body.email, usersDB);
-    console.log(validEmail);
-    res.send("test")
-  });
-  return homeRoutes;
-}
 
+    console.log(userID);
+    // check is user is owner
+    knex.select("*").from('owner').where({
+      email     : req.body.email,
+      password  : req.body.password
+    }).then((results) => {
+      if (results.length == 0) {
+        console.log("owner is 0");
+        // check if user loging in is normal user
+        knex.select("*").from('users').where({
+          email     : req.body.email,
+          password  : req.body.password
+        }).then((results) => {
+          if (results.length == 0) {
+            res.redirect('/')
+          } else {
+            let userEmail = req.session.user_id = req.body.email;
+            let userID = results[0].id;
+            res.render("test");
+          }
+        });
+          // user must be owner
+      } else {
+        let userEmail = req.session.user_id = req.body.email;
+        let userID = results[0].id;
 
-let checkEmails = (email, usersDB) => {
-  let checkEmails = "";
-  Object.keys(usersDB.users).forEach(function (c, i) {
-      if (usersDB.users[c]['email'] == email) {
-        return checkEmails = c
+        res.redirect("admin");
       }
+    });
+
   });
-  return checkEmails;
+
+  return homeRoutes;
 }
