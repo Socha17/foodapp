@@ -126,3 +126,15 @@ color: white
   margin-top: 2.3%;
   float: right;
 }
+
+
+@media screen and (max-width: 768px) {
+
+  input {
+      background: white;
+  }
+
+  .submitBtn {
+    background: white;
+  }
+}
