@@ -3,10 +3,7 @@ const express = require('express');
 const adminRoutes = express.Router();
 
 
-
-
-module.exports = (knex) => {
-
+module.exports = (knex , userID) => {
 
   const accountSid = 'ACdc7b7e947608eb3401c3b3db1aa9aca9'; // Your Account SID from www.twilio.com/console
   const authToken = '3c4ba7903c57ebe7ac077f301b4404ec';   // Your Auth Token from www.twilio.com/console
@@ -21,23 +18,25 @@ module.exports = (knex) => {
 
   adminRoutes.get("/", function(req, res) {
 
+    console.log(`this is gotData ${gotData}`);
+
     if (gotData == false) {
-      res.render('admin')
-      gotData = true;
+        knex.select("*").from('users').then((users) => {
+          objUsers = users
+        }).then(() => {
+        knex.select("*").from('orders').then((orders) => {
+          objOrders = orders
+        }).then(() => {
+          knex.select("*").from('foodordersusers').then((resultsFood) => {
+            objFood = resultsFood
+            gotData = true;
+            res.json(({objFood, objOrders, objUsers}));
+            })
+          });
+        });
     } else {
-      knex.select("*").from('users').then((users) => {
-        objUsers = users
-      }).then(() => {
-      knex.select("*").from('orders').then((orders) => {
-        objOrders = orders
-      }).then(() => {
-        knex.select("*").from('foodordersusers').then((resultsFood) => {
-          objFood = resultsFood
-          gotData = false;
-          res.json(({objFood, objOrders, objUsers}));
-        })
-      });
-    });
+      gotData = false;
+      res.render('admin')
     }
 
   });

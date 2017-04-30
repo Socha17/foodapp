@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   background-color: #EEE;
 
+
   h1 {
-    color: red;
+    font-size: 8em;
+    color: white;
   }
 }
 
 .bgImage {
-  position: absolute;
+  max-height: 100%;
   width: 100%;
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -15,81 +19,106 @@ body {
   background-size: cover;
 }
 
-.loginForm {
-  padding-top: 25px;
-  float: right;
-  display: inline;
+.titleText {
+  text-shadow: 3px 0px 9px rgba(0, 0, 0, 0.7);
+  padding-left: 150px;
 }
 
-.btnContainer {
-  padding-top: 40%;
-  position: relative;
+.T1 {
+  font-size: 9em;
+  margin-top: -700px;
 }
 
-input {
-    background: transparent;
+.T2 {
+  font-size: 8em;
 }
 
-.override {
-     border: 0;
-     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
- }
-
- .formError {
-   border-bottom: 1px solid red;
- }
-
-.form-group {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.form-control:focus {
-  border-bottom: 1px solid rgba(255, 255, 255, 1);
-  // -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-  // box-shadow:inset inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
-}
-
-input:focus[type="email"]::-webkit-input-placeholder {
-color: white
-}
-
-input:focus[type="password"]::-webkit-input-placeholder {
-color: white
-}
-
-.submitBtn {
-  height: 39px;
-  color: grey;
-  width: 100px;
+.menuBtn {
+  margin-top: 0.5%;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 9%;
+  font-size: 1.2em;
+  height: 45px;
+  color: white;
+  width: 220px;
   padding: 10px;
+  background-color: #e80238;
   border: 0;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.0);
-  border-right: 1px solid rgba(255, 255, 255, 0.0);
-  border-left: 1px solid rgba(255, 255, 255, 0.0);
-  -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+  -webkit-border-radius: 60px; -moz-border-radius: 60px; border-radius: 60px;
   -webkit-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
+    -webkit-box-shadow: 1px 7px 24px 2px rgba(0,0,0,0.29);
+    -moz-box-shadow: 1px 7px 24px 2px rgba(0,0,0,0.29);
+    box-shadow: 1px 7px 24px 2px rgba(0,0,0,0.29);
 }
 
-.submitBtn:hover {
+.icon {
+  padding-right: 15px;
+}
+
+.menuBtn:hover {
+  -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 1);
-  -webkit-border-radius: 10px 10px 10px 10px;-moz-border-radius: 10px 10px 10px 10px;border-radius: 10px 10px 10px 10px;
+  display: inline;
+  padding-left: 20px;
+  text-shadow: 3px 0px 9px rgba(0, 0, 0, 0.3);
 }
 
-.submitBtn:focus {
-  border-bottom: 1px solid rgba(255, 255, 255, 1);
-  -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0),0 0 8px rgba(102,175,233,0);
-  box-shadow:inset inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102,175,233,0)
+
+.mainLinks {
+  color: #ff2357;
 }
 
-.alertMessage {
-  display: none;
-  color: grey;
-  padding-left: 50px;
-  margin-top: 2.3%;
-  float: right;
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size:14px;
+    }
+
+    .T1 {
+      margin-top: -200px;
+      font-size: 4em;
+    }
+    .T2 {
+      font-size: 4em;
+    }
+
+    .menuBtn {
+      font-size: 14px;
+      width: 140px;
+      height: 30px;
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .T1 {
+    margin-top: -550px;
+    font-size: 6em;
+  }
+  .T2 {
+    font-size: 6em;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .T1 {
+    margin-top: -350px;
+    font-size: 4em;
+  }
+  .T2 {
+    font-size: 4em;
+  }
+  .menuBtn {
+    font-size: 14px;
+    width: 180px;
+    height: 40px;
+  }
+
 }
