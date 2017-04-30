@@ -56,7 +56,6 @@ let baseTable = `<table class="orderTable table-fill" style="width:80%; margin: 
 } // << end func
 
 
-
 let orderStatus = () => {
 
     $(':button').on('click', function() {

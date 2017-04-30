@@ -7,6 +7,7 @@ module.exports = (knex) => {
 
   homeRoutes.get("/", (req, res) => {
     console.log("got get");
+    res.redirect('/')
   });
 
 
@@ -17,6 +18,7 @@ module.exports = (knex) => {
       password  : req.body.password
     }).then((results) => {
       if (results.length == 0) {
+        console.log("owner is 0");
         // check if user loging in is normal user
         knex.select("*").from('users').where({
           email     : req.body.email,
@@ -25,33 +27,20 @@ module.exports = (knex) => {
           if (results.length == 0) {
             res.redirect('/')
           } else {
-            let userID = req.session.user_id = req.body.email;
-            console.log(userID);
+            let userEmail = req.session.user_id = req.body.email;
+            let userID = results[0].id
             res.render("test");
           }
         });
           // user must be owner
       } else {
-        let userID = req.session.user_id = req.body.email;
-        console.log(userID);
+        let userEmail = req.session.user_id = req.body.email;
+        let userID = results[0].id
         res.redirect("/admin");
       }
     });
 
-
-
-
   });
+
   return homeRoutes;
-}
-
-
-let checkEmails = (email, usersDB) => {
-  let checkEmails = "";
-  Object.keys(usersDB.users).forEach(function (c, i) {
-      if (usersDB.users[c]['email'] == email) {
-        return checkEmails = c
-      }
-  });
-  return checkEmails;
 }

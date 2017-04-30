@@ -3,10 +3,7 @@ const express = require('express');
 const adminRoutes = express.Router();
 
 
-
-
 module.exports = (knex) => {
-
 
   const accountSid = 'ACdc7b7e947608eb3401c3b3db1aa9aca9'; // Your Account SID from www.twilio.com/console
   const authToken = '3c4ba7903c57ebe7ac077f301b4404ec';   // Your Auth Token from www.twilio.com/console
@@ -20,7 +17,9 @@ module.exports = (knex) => {
   let gotData = false
 
   adminRoutes.get("/", function(req, res) {
+
     console.log(`this is gotData ${gotData}`);
+
     if (gotData == false) {
         knex.select("*").from('users').then((users) => {
           objUsers = users
@@ -31,13 +30,11 @@ module.exports = (knex) => {
           knex.select("*").from('foodordersusers').then((resultsFood) => {
             objFood = resultsFood
             gotData = true;
-            console.log("about to send json");
             res.json(({objFood, objOrders, objUsers}));
             })
           });
         });
     } else {
-      console.log("rendering");
       gotData = false;
       res.render('admin')
     }
