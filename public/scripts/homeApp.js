@@ -26,7 +26,6 @@ $(document).ready(function() {
         success: function (response , test) {
 
           console.log("success1");
-
           console.log(`this is test ${test}`);
           if (response != "") {
             console.log("got response");
