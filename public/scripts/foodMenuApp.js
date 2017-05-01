@@ -1,11 +1,5 @@
 
 
-
-
-
-
-
-$(document).ready(function() {
   var Cart = {
 
   foodItems: [],
@@ -15,6 +9,12 @@ $(document).ready(function() {
   Taxes_13perc: 0,
   total: 0
   }
+
+
+
+
+
+$(document).ready(function() {
 
 
   function addItemToCart (name, price, quantity) {
@@ -87,7 +87,25 @@ $(".add-to-cart").click(function (event) {
   console.log("My price is:",price);
    addItemToCart (name, price, 1);
 
-
-  //displaycart();
   })
+
+
+// foodItems: [],
+//   quantity: [],
+//   Eachtotal:  [],
+//   subtotal: 0,
+//   Taxes_13perc: 0,
+//   total: 0
+
+  $('.checkout-button').on('click', function(){
+    console.log("clicked checkout");
+    localStorage.setItem('foodItems', Cart.foodItems);
+    localStorage.setItem('quantity', Cart.quantity);
+    localStorage.setItem('Eachtotal', Cart.Eachtotal);
+    localStorage.setItem('subtotal', Cart.subtotal);
+    localStorage.setItem('Taxes_13perc', Cart.Taxes_13perc);
+    localStorage.setItem('total', Cart.total);
+  })
+
+
 })

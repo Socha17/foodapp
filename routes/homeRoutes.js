@@ -30,7 +30,7 @@ module.exports = (knex, userID) => {
           } else {
             let userEmail = req.session.user_id = req.body.email;
             let userID = results[0].id;
-            res.render("test");
+            res.redirect("foods");
           }
         });
           // user must be owner

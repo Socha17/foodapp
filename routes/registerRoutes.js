@@ -22,7 +22,21 @@ module.exports = (knex) => {
     let userEmail = req.body.email
     let userPassword = req.body.password
     console.log(`First Name: ${userFirstName} Last Name ${userLastName} Email ${userEmail} Password ${userPassword}`)
-      res.redirect("/checkout")
+
+     knex('users').max('id')
+      .then( (rows) => {
+        //Get max orders id from orders table
+       let setNewId = rows[0].max + 1;
+       knex('users').insert({id: setNewId, first_name: userFirstName , last_name: userLastName, email: userEmail, password: userPassword })
+       .then(() => {
+        console.log("One user added")
+        res.redirect("/checkout")
+       })
+      })
+
+    //knex('users').insert({id: thisOrderId, user_id: hardCodeUserId, orderTotal: orderTotal})
+
+
 
   })
 

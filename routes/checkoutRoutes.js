@@ -41,69 +41,6 @@ module.exports = (knex) => {
 
 
 
-  // var queryinterest = (foodItems) => {
-
-  //    let foodItemName = foodItems;
-  //    let
-
-  //             //Find food id and unit price for each foodItem in Cart
-  //             console.log("OUTSIDE LOOP",foodItemName)
-  //             knex.select('id', 'unit_price', 'name').from('food').where({name: foodItemName})
-  //             .then((rows)=>{
-  //                 console.log("INSIDE KNEX", foodItemName)
-  //                 let food_idLookUp = rows[0].id
-  //                 let food_unitPriceLookUp = rows[0].unit_price
-
-  //                 console.log("name: ",foodItemName)
-  //                 console.log("Unit_price: ", food_unitPriceLookUp)
-  //                 console.log("id: ", food_idLookUp)
-  //                 return({food_idLookUp: food_idLookUp, food_unitPriceLookUp: food_unitPriceLookUp});
-  //             })
-  //             .then((result) => {
-  //                 console.log("INSIDE RESULT");
-
-  //                 console.log("name: ",foodItemName)
-  //                 console.log("Unit_price: ", results.food_unitPriceLookUpP)
-  //                 console.log("id: ", results.food_idLookUpP)
-
-  //                   knex('foodordersusers').insert({order_id: thisOrderId,
-  //                                         name: foodItems[i],
-  //                                         food_id: results.food_idLookUp,
-  //                                         users_id: hardCodeUserId,
-  //                                         order_id: thisOrderId,
-  //                                         quantity: quantity[i],
-  //                                         unit_price: results.food_unitPriceLookUp,
-  //                                         total_price: subtotal
-  //                   })
-  //                   .then(() => {
-  //                     console.log("One entry entered successfully")
-  //                   })
-
-  //                 //Insert foodItem entry into foodordersusers
-  //                 // console.log("name: ",foodItemName)
-  //                 // console.log("Unit_price: ", food_unitPriceLookUpP)
-  //                 // console.log("id: ", food_idLookUpP)
-  //             })
-  // }
-
-
-  // // for (i in foodItems){
-
-  // //     queryinterest(foodItems[i]);
-  // // }
-
-  // foodItems.forEach( (element) => {
-  //   queryinterest(element)
-  // })
-
-
-
-
-
-
-
-
-
     //UPDATE TABLES
     //A) orders  table |id-> last known id + 1| user_id-> read from cookie?| orderTotal-> Cart|
     //B) foodordersusers   |order-id -> order.id| name-> Cart foodItems| food_id -> lookUp from Table via Cart foodItems
@@ -172,17 +109,17 @@ module.exports = (knex) => {
       })
     })
 
-    // client.messages.create({
-    //   to: '+16478711822',
-    // from:'16474928049',
-    // body: 'Please check your orders page you have a new pick-up order!',
-    // }, function(err, message) {
-    //   if(err){
-    //     console.log(err);
-    //   } else{
-    //     console.log(message.sid);
-    //   }
-    // });
+    client.messages.create({
+      to: '+16478711822',
+    from:'16474928049',
+    body: 'Please check your orders page you have a new pick-up order!',
+    }, function(err, message) {
+      if(err){
+        console.log(err);
+      } else{
+        console.log(message.sid);
+      }
+    });
     res.send("Done");
   });
   return checkoutRoutes;
