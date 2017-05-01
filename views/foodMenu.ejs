@@ -1,0 +1,88 @@
+
+<%- include('partials/_header'); %>
+<head>
+    <link rel="stylesheet" href="/styles/foodMenu.css" type="text/css" />
+        <script type="text/javascript" src="/scripts/foodMenuApp.js"></script>
+</head>
+<body>
+
+  <div class="banner">
+    <img class="banner-image" src="/Images/homeBanner.jpg"/>
+  </div>
+
+<div class="container" id="main">
+  <div id="sidebar1">
+  </div>
+
+  <div id="sidebar2">
+    <div class="container">
+      <div class="cart-order">
+        <div>
+
+        </div>
+
+          <div class="col-md-12" id="checkoutHead">
+            <h3><u>Cart Order</u></h3>
+              <hr></hr>
+
+          </div>
+            <div class="col-md-6" id="orderDetails">
+              <h3>Your order</h3>
+                <hr></hr>
+                  <div id="itemsPopulate">
+
+                  </div>
+                  <div id="orderTotals">
+
+                  </div>
+
+                  <button class="checkout-button">CHECKOUT</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="column1">
+    <div id="menu">
+
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+
+          <a class="add-to-cart" item-name="Burger" item-price="10"><img class="img-responsive" src="/Images/BURGER.jpg" alt="item-1"/></a>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+          <a class="add-to-cart" item-name="Fish-Tacos" item-price="8"><img src="/Images/Crispy-Fish-Tacos.jpg"class="img-responsive"  alt="item-2"/></a>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+          <a class="add-to-cart" item-name="Mac N Cheese" item-price="9"><img src="/Images/mac-and-cheese.jpg"class="img-responsive"
+          alt="item-5"/></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <a class="add-to-cart" item-name="Fish N Chips" item-price="12"><img src="/Images/fish-n-chips.jpg"class="img-responsive"
+          alt="item-4"/></a>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+          <a class="add-to-cart" item-name="Pasta" item-price="12"><img src="/Images/pasta.jpg" class="img-responsive"
+          alt+"item-3"/></a>
+        </div>
+
+
+        <div class="col-xs-6 col-md-4">
+          <a class="add-to-cart" item-name="Pizza" item-price="10"><img src="/Images/pizza.jpg"class="img-responsive"
+          alt="item-6"/></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src=“../scripts/jquery-3.2.1.js”></script>
+</body>
+</html>

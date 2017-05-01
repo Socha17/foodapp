@@ -19,6 +19,7 @@ const cookieSession = require('cookie-session');
 const usersRoutes = require("./routes/users");
 const homeRoutes = require("./routes/homeRoutes");
 const registerRoutes = require("./routes/registerRoutes");
+const foodRoutes = require("./routes/foodRoutes")
 
 // I am testing this branch
 const checkoutRoutes = require('./routes/checkoutRoutes');
@@ -63,7 +64,7 @@ app.use("/admin", adminRoutes(knex));
 
 
 
-app.use("/foods", usersRoutes(knex));
+app.use("/foods", foodRoutes(knex));
 //-----RM Routes----------
 app.use("/checkout", checkoutRoutes(knex));
 app.use("/register", registerRoutes(knex));
