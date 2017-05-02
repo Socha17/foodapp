@@ -4,6 +4,8 @@
 
 ### Home Page
 
+### Register Page
+
 ### Foods (Menu) Page
 
 ### Checkout Page
